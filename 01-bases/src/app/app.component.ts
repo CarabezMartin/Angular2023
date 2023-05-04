@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bases';
+
+  public contador:number = 0;
+
+  add()
+  {
+    this.contador = this.contador + 1;
+  }
+
+  rest()
+  {
+    this.contador = this.contador - 1;
+  }
+
 }
