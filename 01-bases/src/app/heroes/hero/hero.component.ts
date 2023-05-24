@@ -21,4 +21,14 @@ export class HeroComponent {
     return this.name + ' ' + this.age.toString();
   }
 
+  changeHero()
+  {
+    this.name = 'Thor'
+  }
+
+  changeAge()
+  {
+    this.age = 52;
+  }
+
 }
