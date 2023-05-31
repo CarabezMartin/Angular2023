@@ -2,8 +2,9 @@
 <ul class="list-group">
 
   <li 
-    *ngFor="let character of characterList"
+    *ngFor="let character of characterList; let i = index; let isFirst = first"
     class="list-group-item">
+    <span class="text text-primary">{{i+1}}-</span>
     {{character.name}}-{{character.power}}
   </li>
   
