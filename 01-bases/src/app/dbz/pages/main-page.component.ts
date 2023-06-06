@@ -24,8 +24,14 @@ export class MainPageComponent {
         console.log('Main Page');
         console.log(character);
 
-        this.character.push(character);
+        this.character.push(character);       
 
+    }
+
+    onDeleteCharacter(index:number)
+    {
+        console.log('Main page '+index);
+        this.character.splice(index);
     }
     
 }

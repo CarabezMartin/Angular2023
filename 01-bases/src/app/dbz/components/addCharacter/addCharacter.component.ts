@@ -19,13 +19,18 @@ export class AddCharacterComponent {
 
   addCharacter()
   {
-    if(this.character.name.length != 0)
+    //Esta instruccion nos ayuda a hacer debug del proyecto
+    //debugger;
+
+    if(this.character.name.length == 0)
     {
+      return;      
+    }    
+    else
       this.onNewCharacter.emit(this.character);
 
-      this.character.name = '';
-      this.character.power = 0;
-    }    
+    //this.character.name = '';
+    //this.character.power = 0;
   }
 
 }
