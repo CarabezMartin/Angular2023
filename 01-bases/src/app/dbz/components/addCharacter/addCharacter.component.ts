@@ -15,7 +15,7 @@ export class AddCharacterComponent {
   @Output()
   onNewCharacter:EventEmitter<Character> = new EventEmitter();
 
-  public character:Character = {name:'',power:0};
+  public character:Character = {id:'',name:'',power:0};
 
   addCharacter()
   {
