@@ -7,7 +7,9 @@ import { Gif, SearchResponse } from '../interfaces/gifs.interface';
 })
 export class GifsService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {
+    this.readLocalStorage();
+   }
 
   public gifsList:Gif[] = [];
   private _tagsHistory:string[] = [];
@@ -17,6 +19,20 @@ export class GifsService {
   get tagsHistory()
   {
     return [...this._tagsHistory];
+  }
+
+  private saveLocalStorage()
+  {
+    localStorage.setItem('history',JSON.stringify(this._tagsHistory))
+  }
+
+  private readLocalStorage()
+  {
+    if(!localStorage.getItem('history')) return;
+
+    this._tagsHistory = JSON.parse(localStorage.getItem('history')!);
+    this.searchTag(this._tagsHistory[0]);
+    
   }
 
   private organizeHistory(tag:string)
@@ -30,6 +46,7 @@ export class GifsService {
 
     this._tagsHistory.unshift(tag);
     this._tagsHistory = this._tagsHistory.slice(0,10);
+    this.saveLocalStorage();
   }
 
   searchTag(newTag:string)
