@@ -11,9 +11,26 @@ export class SearchBoxComponent {
 
   @Output() searchByCapitalSearchBox = new EventEmitter<string>
 
-  emitValue(value:string)
+  @Output() searchByCountrySearchBox = new EventEmitter<string>
+
+  @Output() searchByRegionSearchBox = new EventEmitter<string>
+
+  emitValue(value:string, typeSearch:string)
   {
-    this.searchByCapitalSearchBox.emit(value);
+    if(typeSearch == 'Buscar por capital. . .')
+    {
+      this.searchByCapitalSearchBox.emit(value);
+    }
+    else if(typeSearch == 'Buscar por pais. . .')
+    {
+      this.searchByCountrySearchBox.emit(value);
+    }
+    else
+    {
+      console.log('por Region');
+      this.searchByRegionSearchBox.emit(value);
+    }
+    
   }
 
 }
