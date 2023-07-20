@@ -1,7 +1,10 @@
+
+<!-- (keyup.enter)="emitValue(txtBuscar.value,placeholder)" -->
+
 <input 
     type="text" 
     class="form-control"
     [placeholder]="placeholder"
-    (keyup.enter)="emitValue(txtBuscar.value,placeholder)"
+    (keyup)="onKeyPress(txtBuscar.value)"
     #txtBuscar
 >
