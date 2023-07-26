@@ -10,10 +10,14 @@ import { Country } from '../../interfaces/country.interface';
 export class ByRegionPageComponent {
 
   public countries : Country[] = [];
+  public regions:string[] = ['America','Europe','Asia','Africa','Oceania']
+  public selectedRegion?:string = '';
+
   constructor(private countryService : CountriesService){}
 
   searchByRegion(termino:string)
   {
+    this.selectedRegion = termino;
     this.countryService.searchRegion(termino)
       .subscribe( countries => {
         this.countries = countries;
